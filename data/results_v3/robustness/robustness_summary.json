@@ -1,0 +1,51 @@
+{
+ "n_designs": 27,
+ "n_all_valid": 12,
+ "n_centroid_band_valid": 24,
+ "best_all_valid_by_baseline": {
+  "design": "top02",
+  "base_range": 316.70436308147765,
+  "base_valid": true,
+  "n_valid": 7,
+  "n_pert": 7,
+  "all_valid": true,
+  "centroid_band_valid": true,
+  "centroid_band_range_min": 315.4940412670846,
+  "centroid_band_loss_pct": 0.38216139576254804,
+  "mass_m5_valid": true,
+  "mass_m5_range": 303.6206861344264,
+  "mass_p5_valid": true,
+  "mass_p5_range": 329.4518674997994,
+  "mass_p5_reason": "",
+  "min_range": 303.6206861344264,
+  "min_SM": 0.11735641058454852,
+  "max_SM": 0.17659712556973092
+ },
+ "best_centroid_band_valid_by_baseline": {
+  "design": "top01",
+  "base_range": 317.18982778554897,
+  "base_valid": true,
+  "n_valid": 6,
+  "n_pert": 7,
+  "all_valid": false,
+  "centroid_band_valid": true,
+  "centroid_band_range_min": 315.59141498027134,
+  "centroid_band_loss_pct": 0.5039294029184016,
+  "mass_m5_valid": true,
+  "mass_m5_range": 304.03798937672315,
+  "mass_p5_valid": false,
+  "mass_p5_range": 0.0,
+  "mass_p5_reason": "Oswald efficiency non-physical (e=1.006)",
+  "min_range": 304.03798937672315,
+  "min_SM": 0.0,
+  "max_SM": 0.18842040388657874
+ },
+ "mass_p5_failure_reasons": {
+  "Oswald efficiency non-physical (e=1.004)": 3,
+  "Oswald efficiency non-physical (e=1.002)": 3,
+  "Oswald efficiency non-physical (e=1.006)": 2,
+  "Oswald efficiency non-physical (e=1.005)": 2,
+  "Oswald efficiency non-physical (e=1.001)": 2,
+  "Oswald efficiency non-physical (e=1.000)": 1
+ }
+}

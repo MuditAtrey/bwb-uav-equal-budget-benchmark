@@ -1,0 +1,15 @@
+top_turbo
+top_AL
+top_adapt10
+top_local10
+top_local5
+sm_0.050
+sm_0.072
+sm_0.094
+sm_0.117
+sm_0.139
+sm_0.161
+sm_0.183
+sm_0.206
+sm_0.228
+sm_0.250

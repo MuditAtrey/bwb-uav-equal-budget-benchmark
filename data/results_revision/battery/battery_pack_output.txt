@@ -1,0 +1,18 @@
+cell: 18.0 Wh, 260.9 Wh/kg
+{'P': 3, 'cells': 18, 'V_nom': 21.6, 'Ah': 15.0, 'Wh_nom': 324.0, 'mass_kg': 1.319, 'Wh_kg_nom': 245.641, 'Wh_kg_usable': 208.795, 'I_cell_at_80A': 26.667}
+{'P': 4, 'cells': 24, 'V_nom': 21.6, 'Ah': 20.0, 'Wh_nom': 432.0, 'mass_kg': 1.742, 'Wh_kg_nom': 247.991, 'Wh_kg_usable': 210.792, 'I_cell_at_80A': 20.0}
+{'P': 5, 'cells': 30, 'V_nom': 21.6, 'Ah': 25.0, 'Wh_nom': 540.0, 'mass_kg': 2.165, 'Wh_kg_nom': 249.423, 'Wh_kg_usable': 212.009, 'I_cell_at_80A': 16.0}
+{'P': 6, 'cells': 36, 'V_nom': 21.6, 'Ah': 30.0, 'Wh_nom': 648.0, 'mass_kg': 2.588, 'Wh_kg_nom': 250.386, 'Wh_kg_usable': 212.828, 'I_cell_at_80A': 13.333}
+{'P': 7, 'cells': 42, 'V_nom': 21.6, 'Ah': 35.0, 'Wh_nom': 756.0, 'mass_kg': 3.011, 'Wh_kg_nom': 251.079, 'Wh_kg_usable': 213.417, 'I_cell_at_80A': 11.429}
+{'P': 8, 'cells': 48, 'V_nom': 21.6, 'Ah': 40.0, 'Wh_nom': 864.0, 'mass_kg': 3.434, 'Wh_kg_nom': 251.602, 'Wh_kg_usable': 213.861, 'I_cell_at_80A': 10.0}
+{'P': 9, 'cells': 54, 'V_nom': 21.6, 'Ah': 45.0, 'Wh_nom': 972.0, 'mass_kg': 3.857, 'Wh_kg_nom': 252.009, 'Wh_kg_usable': 214.208, 'I_cell_at_80A': 8.889}
+sensitivity 6S8P usable Wh/kg vs overhead (g/cell, fixed g):
+0 0 3.312 221.7
+1.5 50 3.434 213.9
+3 80 3.536 207.7
+5 120 3.672 200.0
+continuous e(m): {1.5: 209.8, 2.0: 211.6, 2.5: 212.7, 3.0: 213.4, 3.43: 213.9, 3.5: 213.9}
+paper champion 298.7 -> 399.3 km at 213.9 Wh/kg; 388.8 at 208.25
+AL replication mean (3 complete seeds) 305.23 -> 408.0 km at 213.9 Wh/kg; 397.3 at 208.25
+local search 10 pct 288.6 -> 385.8 km at 213.9 Wh/kg; 375.6 at 208.25
+local search 5 pct 286.3 -> 382.7 km at 213.9 Wh/kg; 372.6 at 208.25

@@ -1,0 +1,100 @@
+\documentclass[3p,times]{elsarticle}
+
+\journal{Chinese Journal of Aeronautics}
+
+\biboptions{sort&compress,super}   % CJA: references indicated by superscript numbers
+\usepackage{amsmath,amssymb,amsfonts}
+\usepackage{graphicx}
+\usepackage{booktabs}
+\usepackage{subcaption}
+\usepackage{microtype}
+\usepackage{xr-hyper}
+\usepackage{hyperref}
+\usepackage{url}
+\usepackage{array}
+\usepackage{multirow}
+\usepackage{siunitx}
+\sisetup{detect-all}
+
+% Float placement optimization (prevents orphan float pages)
+\renewcommand{\topfraction}{0.85}
+\renewcommand{\bottomfraction}{0.85}
+\renewcommand{\textfraction}{0.15}
+\renewcommand{\floatpagefraction}{0.85}
+
+\hypersetup{
+    colorlinks=true,
+    linkcolor=blue,
+    citecolor=blue,
+    urlcolor=blue
+}
+
+\input{numbers.tex}
+\input{outcome_macros.tex}
+\input{numbers_v4.tex}
+\input{numbers_oos.tex}
+\input{numbers_pool.tex}
+\input{numbers_long.tex}
+\input{numbers_champ.tex}
+\externaldocument{supplement}   % moved audits and tables print as S-numbers
+
+\emergencystretch=1.5em
+\begin{document}
+
+\begin{frontmatter}
+
+\title{Equal-Budget Benchmark of Surrogate-Assisted Search Strategies for Conceptual Design of a Tailless Blended-Wing-Body UAV with an Euler-Calibrated Stability Constraint}
+
+\author[kit]{Mudit Atrey\corref{cor1}}
+\ead{muditatrey.work@gmail.com}
+\cortext[cor1]{Corresponding author.}
+
+\affiliation[kit]{organization={Department of Computer Science and Engineering, Kanpur Institute of Technology (KIT)},
+    addressline={Rooma},
+    city={Kanpur},
+    postcode={208001},
+    state={Uttar Pradesh},
+    country={India}}
+
+\begin{abstract}
+\input{abstract_revised.tex}
+\end{abstract}
+
+\begin{keyword}
+Blended wing body \sep Tailless aircraft \sep Multidisciplinary design optimization \sep Surrogate model \sep Bayesian optimization \sep Static stability
+\end{keyword}
+
+\end{frontmatter}
+
+\input{sections_revised/01_introduction.tex}
+\input{sections_revised/02_problem_formulation.tex}
+\input{sections_revised/03_computational_pipeline.tex}
+\input{sections_revised/04_geometric_manifold_and_trim.tex}
+\input{sections_revised/05_equal_budget_protocol.tex}
+\input{sections_revised/06_results_and_validation.tex}
+\input{sections_revised/07_discussion.tex}
+\input{sections_revised/08_conclusion.tex}
+
+\section*{CRediT Author Statement}
+\textbf{Mudit Atrey:} Conceptualization, Methodology, Software, Formal analysis, Investigation, Data curation, Writing -- original draft, Writing -- review \& editing, Visualization.
+
+\section*{Declaration of Competing Interest}
+The author declares that he has no known competing financial interests or personal relationships that could have appeared to influence the work reported in this paper.
+
+\section*{Funding}
+This research did not receive any specific grant from funding agencies in the public, commercial, or not-for-profit sectors.
+
+\section*{Data and Code Availability}
+The complete run histories of all computational experiments are openly deposited at \url{https://doi.org/10.5281/zenodo.22893592}: for every evaluation of the original campaign, of each benchmark, ablation, pool-size, bound-price and loft run, and of the grid and battery-position audits, the full 14-variable design vector, the calm-air range, the feasibility flag, the lift-to-drag ratio, the static margin and the pitching moment. The deposit also contains the Euler CFD solution files and the Python scripts that generate every table, figure and numerical macro of this paper from those files. No design data are withheld. The released evaluator computes ranges with a usable energy density of $208.25\,\mathrm{Wh/kg}$, a value set before the battery-pack derivation of Supplementary Section~\ref{sec:battery_pack}; its ranges are converted to the basis of this paper by the factor $203.3/208.25$, and the stored database values by $203.3/160.0$. With that conversion, re-evaluating the stored design vector of the best design of the original campaign with the released code reproduces the stored range within five parts per million.
+
+\section*{Declaration of generative AI and AI-assisted technologies in the manuscript preparation process}
+During the preparation of this work the author used Claude (Anthropic) and Gemini (Google) in order to assist with the planning of the computational experiments, the writing and running of the analysis and plotting scripts, the checking of the manuscript against the code and the run files, the literature search, and the drafting and editing of the text. The author directed the work, approved each experiment and claim, and verified the results, including rerunning the scripts that generate every reported value. After using these tools, the author reviewed and edited the content as needed and takes full responsibility for the content of the published article.
+
+\section*{Acknowledgments}
+The author acknowledges the scientific computing and aerospace engineering communities for developing and maintaining the open-source frameworks utilized throughout this research, including AeroSandbox, NeuralFoil, SU2, Gmsh, and scikit-learn.
+
+\bibliographystyle{elsarticle-num}
+\bibliography{references}
+
+\end{document}
+

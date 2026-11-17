@@ -1,0 +1,30 @@
+\documentclass[11pt]{article}
+\usepackage[margin=1in]{geometry}
+\usepackage{amsmath,amssymb,amsfonts,graphicx,booktabs,subcaption,microtype,array,multirow,siunitx,url}
+\usepackage[numbers,sort&compress,super]{natbib}
+\usepackage{xr-hyper}
+\usepackage[colorlinks=true,linkcolor=blue,citecolor=blue,urlcolor=blue]{hyperref}
+\input{numbers.tex}
+\input{outcome_macros.tex}
+\input{numbers_v4.tex}
+\input{numbers_oos.tex}
+\input{numbers_pool.tex}
+\input{numbers_long.tex}
+\input{numbers_champ.tex}
+\externaldocument{main_revised}
+\renewcommand{\thesection}{S\arabic{section}}
+\renewcommand{\thefigure}{S\arabic{figure}}
+\renewcommand{\thetable}{S\arabic{table}}
+\renewcommand{\theequation}{S\arabic{equation}}
+\begin{document}
+\begin{center}
+{\Large\bfseries Supplementary Material}\\[6pt]
+{\large Equal-Budget Benchmark of Surrogate-Assisted Search Strategies for Conceptual Design of a Tailless Blended-Wing-Body UAV with an Euler-Calibrated Stability Constraint}
+\end{center}
+\noindent This document contains the secondary audits and the tables that support statements in the main text. Section, figure, table and equation numbers without the prefix S refer to the main text.
+
+\input{supplement_body.tex}
+
+\bibliographystyle{elsarticle-num}
+\bibliography{references}
+\end{document}

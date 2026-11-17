@@ -1,0 +1,20 @@
+cff-version: 1.2.0
+message: "If you use this code or data, please cite the preprint."
+title: "Equal-Budget Benchmark of Surrogate-Assisted Search Strategies for Conceptual Design of a Tailless Blended-Wing-Body UAV with an Euler-Calibrated Stability Constraint"
+authors:
+  - family-names: Atrey
+    given-names: Mudit
+    affiliation: "Department of Computer Science and Engineering, Kanpur Institute of Technology"
+type: software
+doi: 10.5281/zenodo.22893592
+date-released: 2026-11-17
+license: MIT
+preferred-citation:
+  type: article
+  title: "Equal-Budget Benchmark of Surrogate-Assisted Search Strategies for Conceptual Design of a Tailless Blended-Wing-Body UAV with an Euler-Calibrated Stability Constraint"
+  authors:
+    - family-names: Atrey
+      given-names: Mudit
+  year: 2026
+  doi: 10.5281/zenodo.22893592
+  notes: "Preprint"

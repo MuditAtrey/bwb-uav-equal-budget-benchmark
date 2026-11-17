@@ -1,0 +1,20 @@
+Classifier Audit Report (RandomForest 100 trees, 5-fold stratified 80/20 splits on 10,087 dataset)
+========================================================================================================
+Source: flying_wing_optimizer/results/database.csv (10,087 rows, 2,907 valid)
+Threshold: p >= 0.5
+
+Per-Seed Split Results:
+ seed  precision  recall  recall_top10pct  n_top10  recall_top2pct  n_top2  mean_p_top10  fn_best_range
+    0     0.8721  0.5739           0.7593       54          0.8824      17        0.6920       294.9216
+    1     0.8920  0.5533           0.7593       54          0.9375      16        0.7048       295.1942
+    2     0.8618  0.5893           0.7500       60          0.9000      10        0.6890       292.6162
+    3     0.8866  0.5911           0.7544       57          0.8889       9        0.6768       292.6162
+    4     0.9135  0.6168           0.8393       56          0.8571      14        0.6659       298.7239
+
+Mean across 5 stratified splits:
+- Global Precision: 0.8852 (88.5%)
+- Global Recall: 0.5849 (58.5%) [Note: extra_analyses unscaled feature RF gave 54.7%]
+- Top 10% Range Frontier Recall: 0.7724 (77.2%)
+- Top 2% Range Frontier Recall: 0.8932 (89.3%)
+- Mean predicted probability p for valid Top 10% designs: 0.6857
+- Highest false-negative missed range: 294.81 km (160 Wh/kg basis) / 374.71 km (203.3 Wh/kg basis)

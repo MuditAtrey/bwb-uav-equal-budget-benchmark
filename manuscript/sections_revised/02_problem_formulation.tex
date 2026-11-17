@@ -1,0 +1,84 @@
+\section{MDO Problem Formulation and Mission Profile}
+\label{sec:formulation}
+
+\subsection{Design Variable Vector and Exploration Bounds}
+The tailless Blended Wing Body configuration is parameterized by a 14-dimensional continuous design variable vector $\mathbf{x} \in \Omega \subset \mathbb{R}^{14}$:
+\begin{equation}
+\mathbf{x} = \big[ \Lambda_{\mathrm{in}}, \Lambda_{\mathrm{out}}, y_{b}, c_{r}, c_{b}, \lambda, \theta_0, \theta_1, \theta_2, \theta_t, \Lambda_w, \theta_w, m_{\mathrm{b}}, V \big]^T
+\end{equation}
+where the geometric, structural, and operational variables are defined with their allowable exploration bounds in Table~\ref{tab:design_bounds}. The vehicle geometry features an inner center-body section blending into an outer lifting wing, terminated by canted winglets. The main lifting wing semi-span is constrained to $b_{\mathrm{main}}/2 = 0.75\,\mathrm{m}$ (total main-wing span $b = 1.50\,\mathrm{m}$), with the canted winglets extending outboard to a tip-to-tip span of $1.548\,\mathrm{m}$. Evaluations are conducted at a representative low-altitude cruise condition of 500\,m above mean sea level under International Standard Atmosphere (ISA) conditions ($\rho = 1.167\,\mathrm{kg/m^3}$, kinematic viscosity $\nu = 1.52 \times 10^{-5}\,\mathrm{m^2/s}$).
+
+\begin{table}[htbp]
+\centering\small
+\caption{Design variable definitions, operational exploration bounds, and engineering rationale.}
+\label{tab:design_bounds}
+\resizebox{\linewidth}{!}{%
+\begin{tabular}{@{}llcccl@{}}
+\toprule
+\textbf{Variable} & \textbf{Description} & \textbf{Unit} & \textbf{Min} & \textbf{Max} & \textbf{Engineering Rationale} \\
+\midrule
+$\Lambda_{\mathrm{in}}$ & Center-body leading-edge sweep & deg & 25.0 & 45.0 & Sets center-body shape, bay volume and neutral-point position \\
+$\Lambda_{\mathrm{out}}$ & Outer-wing leading-edge sweep & deg & 25.0 & 45.0 & Moves outer-wing lift aft, shifting the neutral point ($x_{\mathrm{np}}$) \\
+$y_{b}$ & Blend station semi-span & m & 0.20 & 0.35 & Spanwise extent of the center body \\
+$c_{r}$ & Center-body root chord & m & 0.42 & 0.52 & Center-body length, bay volume and wing area \\
+$c_{b}$ & Blend station chord & m & 0.25 & 0.35 & Chord at the junction of center body and outer wing \\
+$\lambda$ & Outer-wing taper ratio ($c_{t}/c_{b}$) & -- & 0.55 & 0.80 & Outer-wing lift distribution and induced drag \\
+$\theta_0$ & Root section geometric incidence & deg & 0.0 & 4.0 & Center-body incidence; sets the cruise angle of attack \\
+$\theta_1$ & Blend station incidence & deg & $-3.0$ & 2.0 & Twist at the junction; part of the washout distribution \\
+$\theta_2$ & Mid-outer wing twist & deg & $-6.0$ & 0.0 & Washout of the outer wing; contributes to pitch trim \\
+$\theta_t$ & Wingtip aerodynamic washout twist & deg & $-12.0$ & $-2.0$ & Tip washout; raises the zero-lift pitching moment ($C_{m0}$) \\
+$\Lambda_w$ & Winglet leading-edge sweep & deg & 15.0 & 50.0 & Winglet geometry; affects induced drag and wetted area \\
+$\theta_w$ & Winglet toe-out angle & deg & $-10.0$ & 0.0 & Winglet loading; affects induced drag \\
+$m_{\mathrm{b}}$ & Usable battery pack mass & kg & 1.50 & 3.50 & Energy carried; enters range and mass \\
+$V$ & Operational cruise flight speed & m/s & 36.11 & 61.11 & Cruise speed; lower bound is the $130\,\mathrm{km/h}$ requirement \\
+\bottomrule
+\end{tabular}%
+}
+\end{table}
+
+\subsection{Optimization Statement and Feasibility Criteria}
+The primary objective of the optimization is to maximize the calm-air operational range $R(\mathbf{x})$:
+\begin{equation}
+\max_{\mathbf{x} \in \Omega} \; R(\mathbf{x}) \quad \text{subject to} \quad \mathcal{F}(\mathbf{x}) = \text{true}
+\end{equation}
+where $\mathcal{F}(\mathbf{x})$ is the conjunction of the following hard constraints enforced by the evaluator:
+\begin{align}
+g_1(\mathbf{x}): & \quad 0.05 \le SM(\mathbf{x}) \le 0.25 \quad (\text{Longitudinal static stability margin}) \label{eq:con_sm} \\
+g_2(\mathbf{x}): & \quad |C_m(\mathbf{x}, \alpha_{\mathrm{cruise}})| \le 0.10 \quad (\text{Elevon trim authority limit}) \label{eq:con_cm} \\
+g_3(\mathbf{x}): & \quad V \ge 36.11\,\mathrm{m/s} \quad (\text{Minimum dash velocity: } 130\,\mathrm{km/h}) \label{eq:con_vel} \\
+g_4(\mathbf{x}): & \quad C_{L,\mathrm{cruise}}(\mathbf{x}) \le 0.80 \quad (\text{Cruise stall margin requirement}) \label{eq:con_cl} \\
+g_5(\mathbf{x}): & \quad h_{\mathrm{nose}}(\mathbf{x}) \ge 0.050\,\mathrm{m} \quad (\text{Optical sensor payload clearance}) \label{eq:con_nose} \\
+g_6(\mathbf{x}): & \quad V_{\mathrm{bay}}(\mathbf{x}) \ge 2.50\,\mathrm{L} \quad (\text{Internal battery/avionics cavity volume}) \label{eq:con_vol} \\
+g_7(\mathbf{x}): & \quad t_{\mathrm{spar}}(y) \ge 0.010\,\mathrm{m} \quad \forall y \in [0, y_{b}] \quad (\text{Primary structural spar depth}) \label{eq:con_spar} \\
+g_8(\mathbf{x}): & \quad \theta_t \le \theta_2 \le \theta_1 \le \theta_0 \quad (\text{Monotone washout from root to tip}) \label{eq:con_washout}
+\end{align}
+The evaluator also rejects a design if the wing trailing edge fouls the motor body or the propeller disc, if the winglet tip chord is below $0.06\,\mathrm{m}$, if the center body is narrower than $0.55\,c_r$ at $y = 0.15\,\mathrm{m}$, or if the span efficiency factor computed from the lattice induced drag, $e = C_L^2/(\pi A\!R\, C_{D,\mathrm{ind}})$ with the aspect ratio based on the $1.5\,\mathrm{m}$ main span, exceeds one. The last check is a numerical sanity guard against ill-conditioned lattice solutions; because winglets can legitimately raise $e$ slightly above one on that span basis, the guard is conservative, and Section~\ref{sec:robustness} shows that it is active for the best designs. A center of gravity outside 15\% to 40\% of the mean aerodynamic chord ($\bar{c}$), a cruise pitching moment above $|C_m| = 0.02$ and a tip thickness below $8\,\mathrm{mm}$ are not hard constraints; they add to a soft penalty score that is logged and used by the surrogate (Section~\ref{sec:protocol}). If any hard condition is violated the design is infeasible and receives no range.
+
+Constraint $g_8$ deserves a remark because it matters for the comparison of search strategies. It involves only four design variables and can be checked, or enforced by sorting the four twist angles, before any aerodynamic computation. Whether a search strategy applies that sorting to its proposals turns out to change its result (Section~\ref{sec:budget_results}).
+
+\subsection{Breguet Electric Range and Mass Buildup}
+\label{sec:energy_model}
+The calm-air cruise range $R(\mathbf{x})$ is evaluated using the electric aircraft Breguet range derivation~\cite{traub2011range}:
+\begin{equation}
+R = \eta_{\mathrm{tot}} \cdot \left(\frac{e_u}{g}\right) \cdot \left(\frac{m_{\mathrm{b}}}{m}\right) \cdot \left(\frac{L}{D}\right)_{\mathrm{cruise}}
+\label{eq:breguet_range}
+\end{equation}
+where $g = 9.81\,\mathrm{m/s^2}$, $e_u$ is the usable pack-level gravimetric energy density in J/kg, $m_{\mathrm{b}}$ is the battery pack mass, $m$ is the total vehicle take-off mass, and $\eta_{\mathrm{tot}}$ is the total propulsion chain efficiency. Total efficiency is modeled as:
+\begin{equation}
+\eta_{\mathrm{tot}} = \eta_{\mathrm{motor}} \cdot \eta_{\mathrm{esc}} \cdot \eta_{\mathrm{prop}}(V) = 0.88 \cdot \eta_{\mathrm{prop}}(V)
+\end{equation}
+where $\eta_{\mathrm{motor}}\eta_{\mathrm{esc}} = 0.88$ represents a brushless DC motor (Turnigy AT4130) paired with an 80A electronic speed controller. Propeller efficiency $\eta_{\mathrm{prop}}(V)$ is captured via a four-point piecewise-linear interpolation of the advance ratio $J = V/(nD)$ for an APC $12\times8$E propeller operating at 10,000\,rpm ($n = 166.7\,\mathrm{rev/s}$, $D = 0.305\,\mathrm{m}$), mapping $J \in \{0.55, 0.65, 0.80, 0.95\}$ to $\eta_{\mathrm{prop}} \in \{0.72, 0.78, 0.80, 0.65\}$ ; these four points are an assumed efficiency map for this propeller class and were not measured for this study.
+
+The total vehicle mass $m$ is determined via a component-level mass buildup:
+\begin{equation}
+m = m_{\mathrm{payload}} + m_{\mathrm{propulsion}} + m_{\mathrm{avionics}} + m_{\mathrm{airframe}}(\mathbf{x}) + m_{\mathrm{b}}
+\end{equation}
+with fixed component masses $m_{\mathrm{payload}} = 2.00\,\mathrm{kg}$, $m_{\mathrm{propulsion}} = 0.55\,\mathrm{kg}$, and $m_{\mathrm{avionics}} = 0.40\,\mathrm{kg}$. The composite airframe mass scales dynamically with vehicle planform area:
+\begin{equation}
+m_{\mathrm{airframe}}(\mathbf{x}) = 1.0\,\mathrm{kg} + (1.5\,\mathrm{kg/m^2}) \cdot S_{\mathrm{ref}}
+\end{equation}
+representing a lightweight carbon-fiber skin over structural foam ribs.
+
+\subsection{Energy Basis}
+\label{sec:energy_basis}
+Ranges are reported for a pack that can be built: 48 Samsung INR21700-50E cells in a 6S8P arrangement (\NpackNom\,Wh nominal, $3.400\,\mathrm{kg}$ with interconnects and management electronics), which gives $254.1\,\mathrm{Wh/kg}$ at pack level and a usable energy density of $e_u = \NeU\,\mathrm{Wh/kg}$ at $80\%$ depth of discharge. The evaluation database was computed with $e_{u,\mathrm{base}} = 160.0\,\mathrm{Wh/kg}$. Because Eq.~\eqref{eq:breguet_range} is linear in $e_u$ and $e_u$ enters no constraint, every range is multiplied by the constant factor $f_{\mathrm{energy}} = \NeF$, which preserves the ordering of all designs and every statistical comparison. The battery mass remains a continuous design variable, so designs at the $3.5\,\mathrm{kg}$ bound carry slightly more than this pack. Supplementary Section~\ref{sec:battery_pack} gives the cell data and the derivation.

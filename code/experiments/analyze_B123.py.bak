@@ -1,0 +1,55 @@
+"""Summaries for B1 (feasibility weighting: soft / none / hard in AL), B2 (TuRBO with / without weighting) and B3 (n = 10 per arm).
+Per arm: n, best at 287 (mean, sd, min, max), anytime best at 60/100/150/200, valid share, first-60 valid share. Pairwise: difference of means,
+two-sided Welch p, two-sided Mann-Whitney p, bootstrap 95% CI (20,000 resamples, seed 0). Ranges are reported on the 203.3 Wh/kg basis (x EU/160).
+Only runs with 287 evaluations are used (AL replications that stopped by exhaustion are kept and flagged). AL soft = seeds 0-9 (the original campaign run is excluded, n = 10).
+usage: python3 analyze_B123.py OUTDIR"""
+import glob, json, os, sys
+import numpy as np, pandas as pd
+from scipy import stats
+ROOT = os.path.abspath(os.path.join(os.path.dirname(__file__), "..", "..", ".."))
+R, V3 = f"{ROOT}/revision_runs/results_revision", f"{ROOT}/revision_runs/results_v3"
+OUT = sys.argv[1] if len(sys.argv) > 1 else f"{V3}/B123_summary"; os.makedirs(OUT, exist_ok=True)
+EU = 48 * 18 * 0.8 / 3.4; F = EU / 160.0; N = 287
+def load(pats, rc):
+    runs = {}
+    for pat in pats:
+        for f in sorted(glob.glob(pat)):
+            d = pd.read_csv(f); d["is_valid"] = d.is_valid.astype(bool)
+            runs[os.path.basename(os.path.dirname(f)) + "/" + os.path.basename(f)] = d.rename(columns={rc: "r"})[["r", "is_valid"]].reset_index(drop=True)
+    return runs
+ARMS = {
+    "AL soft (weighted)": load([f"{R}/al/al_seed?.csv"], "range_calm_km"),
+    "AL no weight": load([f"{V3}/al_nofeas/al_seed?.csv"], "range_calm_km"),
+    "AL hard weight": load([f"{V3}/al_hard/al_seed?.csv"], "range_calm_km"),
+    "TuRBO": {**load([f"{R}/turbo/turbo_seed?.csv", f"{V3}/turbo_extra/turbo_seed?.csv"], "range_km")},
+    "TuRBO + feasibility weight": load([f"{V3}/turbo_feas/turbo_seed?.csv"], "range_km"),
+}
+for c, lab in [("adapt10", "Adaptive local, 10%"), ("local10", "Local, 10%"), ("local5", "Local, 5%"), ("lhs", "Fresh LHS"), ("uniform", "Uniform random")]:
+    ARMS[lab] = load([f"{R}/controls/{c}_seed?.csv", f"{V3}/controls_extra/{c}_seed?.csv"], "range_km")
+def curve(d):
+    x = d.r.where(d.is_valid, 0.0).cummax().values
+    return np.concatenate([x, np.full(max(0, N - len(x)), x[-1])])[:N]
+rows, bests = [], {}
+for arm, runs in ARMS.items():
+    runs = {k: d for k, d in runs.items() if len(d) >= N or (arm.startswith("AL soft") and "seed2" in k)}
+    if not runs: continue
+    b = np.array([d[d.is_valid].r.max() for d in runs.values()]); bests[arm] = b
+    cv = np.array([curve(d) for d in runs.values()])
+    rows.append(dict(arm=arm, n=len(b), mean=b.mean() * F, sd=(b.std(ddof=1) * F if len(b) > 1 else np.nan), min=b.min() * F, max=b.max() * F,
+                     at60=cv[:, 59].mean() * F, at100=cv[:, 99].mean() * F, at150=cv[:, 149].mean() * F, at200=cv[:, 199].mean() * F,
+                     valid_share=np.mean([d.is_valid.mean() for d in runs.values()]), valid_first60=np.mean([d.is_valid.iloc[:60].mean() for d in runs.values()]),
+                     runs=sorted(runs)))
+T = pd.DataFrame(rows); T.drop(columns="runs").to_csv(f"{OUT}/arm_summary.csv", index=False)
+def boot(a, b, n=20000):
+    r = np.random.default_rng(0); d = r.choice(a, (n, len(a))).mean(1) - r.choice(b, (n, len(b))).mean(1); return np.percentile(d, [2.5, 97.5])
+PAIRS = [("AL no weight", "AL soft (weighted)"), ("AL hard weight", "AL soft (weighted)"), ("AL no weight", "AL hard weight"),
+         ("TuRBO + feasibility weight", "TuRBO"), ("TuRBO", "AL soft (weighted)"), ("TuRBO + feasibility weight", "AL soft (weighted)"),
+         ("TuRBO", "Adaptive local, 10%"), ("AL soft (weighted)", "Adaptive local, 10%"), ("AL soft (weighted)", "Local, 10%")]
+P = []
+for x, y in PAIRS:
+    if x not in bests or y not in bests or min(len(bests[x]), len(bests[y])) < 2: continue
+    a, b = bests[x], bests[y]; t = stats.ttest_ind(a, b, equal_var=False); u = stats.mannwhitneyu(a, b, alternative="two-sided"); ci = boot(a, b)
+    P.append(dict(a=x, b=y, n_a=len(a), n_b=len(b), diff_km=(a.mean() - b.mean()) * F, welch_p=t.pvalue, mwu_p=u.pvalue, ci_lo=ci[0] * F, ci_hi=ci[1] * F))
+Pd = pd.DataFrame(P); Pd.to_csv(f"{OUT}/pairwise_tests.csv", index=False)
+json.dump(dict(arms=T.to_dict("records"), pairs=P, basis_Wh_per_kg=EU), open(f"{OUT}/B123_summary.json", "w"), indent=1, default=float)
+print(T.drop(columns="runs").round(2).to_string()); print(Pd.round(3).to_string())

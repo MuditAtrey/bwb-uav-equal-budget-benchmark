@@ -1,0 +1,12 @@
+\begin{tabular}{@{}llrrrrrr@{}}
+\toprule
+Test & Target & $n_{\rm test}$ & $R^2$ & MAE & Bias & Spearman & 1-sd coverage \\
+\midrule
+train Phase1 $\to$ test Phase2 & range (km) & 157 & 0.76 & 3.72 & -3.68 & 0.95 & 0.78 \\
+train range$<$250 $\to$ test range$\geq$250 & range (km) & 164 & 0.35 & 8.32 & -8.26 & 0.96 & 0.59 \\
+train Phase1 $\to$ test Phase2 & $L/D$ & 157 & 0.89 & 0.11 & +0.03 & 0.94 & 0.97 \\
+train range$<$250 $\to$ test range$\geq$250 & $L/D$ & 164 & 0.86 & 0.13 & -0.13 & 0.96 & 0.89 \\
+train Phase1 $\to$ test Phase2 & static margin & 157 & 1.00 & 0.00 & +0.00 & 0.99 & 0.99 \\
+train range$<$250 $\to$ test range$\geq$250 & static margin & 164 & 1.00 & 0.00 & -0.00 & 1.00 & 0.89 \\
+\bottomrule
+\end{tabular}

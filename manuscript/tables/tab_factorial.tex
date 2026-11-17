@@ -1,0 +1,15 @@
+\begin{tabular*}{\linewidth}{@{\extracolsep{\fill}}lrrrrrrrrr@{}}
+\toprule
+ & & \multicolumn{3}{c}{Best feasible range (km)} & \multicolumn{3}{c}{Share of evaluations (\%)} & \multicolumn{2}{c}{Beating the pool} \\
+\cmidrule(lr){3-5}\cmidrule(lr){6-8}\cmidrule(l){9-10}
+Strategy & Runs & at 100 & at 287 & min to max & valid & valid$_{60}$ & fail $g_8$ & runs & evals \\
+\midrule
+AL, sigmoid & 10 & 376.1 & 385.5 $\pm$ 10.8 & 368.9 to 397.4 & 60 & 14 & 17 & 10/10 & 44 \\
+AL, sigmoid + R & 10 & 379.8 & 394.0 $\pm$ 4.1 & 386.3 to 399.5 & 65 & 26 & 0 & 10/10 & 32 \\
+AL, none & 10 & n/a & none feasible & n/a & 0 & 0 & 100 & 0/10 & n/a \\
+AL, none + R & 10 & n/a & none feasible & n/a & 0 & 0 & 0 & 0/10 & n/a \\
+AL, hard gate & 10 & 352.9 & 394.0 $\pm$ 4.2 & 383.6 to 399.5 & 10 & 0 & 64 & 10/10 & 192 \\
+TuRBO & 20 & 382.9 & 396.8 $\pm$ 4.4 & 385.3 to 403.0 & 82 & 80 & 0 & 20/20 & 2 \\
+TuRBO+w & 10 & 383.9 & 397.5 $\pm$ 2.8 & 394.0 to 403.0 & 92 & 92 & 0 & 10/10 & 2 \\
+\bottomrule
+\end{tabular*}

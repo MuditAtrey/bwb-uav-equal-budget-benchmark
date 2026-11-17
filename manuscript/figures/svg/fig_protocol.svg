@@ -1,0 +1,231 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
+  "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg xmlns:xlink="http://www.w3.org/1999/xlink" width="402.12pt" height="211.104pt" viewBox="0 0 402.12 211.104" xmlns="http://www.w3.org/2000/svg" version="1.1">
+ <metadata>
+  <rdf:RDF xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:cc="http://creativecommons.org/ns#" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+   <cc:Work>
+    <dc:type rdf:resource="http://purl.org/dc/dcmitype/StillImage"/>
+    <dc:date>2026-11-17T19:08:27.280667</dc:date>
+    <dc:format>image/svg+xml</dc:format>
+    <dc:creator>
+     <cc:Agent>
+      <dc:title>Matplotlib v3.11.1, https://matplotlib.org/</dc:title>
+     </cc:Agent>
+    </dc:creator>
+   </cc:Work>
+  </rdf:RDF>
+ </metadata>
+ <defs>
+  <style type="text/css">*{stroke-linejoin: round; stroke-linecap: butt}</style>
+ </defs>
+ <g id="figure_1">
+  <g id="patch_1">
+   <path d="M 0 211.104 
+L 402.12 211.104 
+L 402.12 0 
+L 0 0 
+z
+" style="fill: #ffffff"/>
+  </g>
+  <g id="axes_1">
+   <g id="patch_2">
+    <path d="M 13.786027 78.581189 
+L 94.046301 78.581189 
+L 94.046301 19.245405 
+L 13.786027 19.245405 
+z
+" style="fill: #dfe5f6; stroke: #0b1a6e; stroke-linejoin: miter"/>
+   </g>
+   <g id="patch_3">
+    <path d="M 115.449041 191.858595 
+L 206.410685 191.858595 
+L 206.410685 19.245405 
+L 115.449041 19.245405 
+z
+" style="fill: #ffffff; stroke-dasharray: 5,3; stroke-dashoffset: 0; stroke: #0b1a6e; stroke-linejoin: miter"/>
+   </g>
+   <g id="patch_4">
+    <path d="M 123.475068 62.398703 
+L 198.384658 62.398703 
+L 198.384658 42.979719 
+L 123.475068 42.979719 
+z
+" style="fill: #ffffff; stroke: #0b1a6e; stroke-linejoin: miter"/>
+   </g>
+   <g id="patch_5">
+    <path d="M 123.475068 87.211849 
+L 198.384658 87.211849 
+L 198.384658 67.792865 
+L 123.475068 67.792865 
+z
+" style="fill: #ffffff; stroke: #0b1a6e; stroke-linejoin: miter"/>
+   </g>
+   <g id="patch_6">
+    <path d="M 123.475068 112.024995 
+L 198.384658 112.024995 
+L 198.384658 92.606011 
+L 123.475068 92.606011 
+z
+" style="fill: #ffffff; stroke: #0b1a6e; stroke-linejoin: miter"/>
+   </g>
+   <g id="patch_7">
+    <path d="M 123.475068 136.838141 
+L 198.384658 136.838141 
+L 198.384658 117.419157 
+L 123.475068 117.419157 
+z
+" style="fill: #ffffff; stroke: #0b1a6e; stroke-linejoin: miter"/>
+   </g>
+   <g id="patch_8">
+    <path d="M 123.475068 161.651286 
+L 198.384658 161.651286 
+L 198.384658 142.232303 
+L 123.475068 142.232303 
+z
+" style="fill: #ffffff; stroke: #0b1a6e; stroke-linejoin: miter"/>
+   </g>
+   <g id="patch_9">
+    <path d="M 123.475068 186.464432 
+L 198.384658 186.464432 
+L 198.384658 167.045449 
+L 123.475068 167.045449 
+z
+" style="fill: #ffffff; stroke: #0b1a6e; stroke-linejoin: miter"/>
+   </g>
+   <g id="patch_10">
+    <path d="M 227.813425 78.581189 
+L 297.372329 78.581189 
+L 297.372329 19.245405 
+L 227.813425 19.245405 
+z
+" style="fill: #f9dfe4; stroke: #dc143c; stroke-linejoin: miter"/>
+   </g>
+   <g id="patch_11">
+    <path d="M 318.775068 78.581189 
+L 388.333973 78.581189 
+L 388.333973 19.245405 
+L 318.775068 19.245405 
+z
+" style="fill: #ffffff; stroke: #0b1a6e; stroke-linejoin: miter"/>
+   </g>
+   <g id="patch_12">
+    <path d="M 227.813425 186.464432 
+L 388.333973 186.464432 
+L 388.333973 110.946162 
+L 227.813425 110.946162 
+z
+" style="fill: #dff0df; stroke: #0b6623; stroke-linejoin: miter"/>
+   </g>
+   <g id="patch_13">
+    <path d="M 94.046301 48.913297 
+Q 104.747671 48.913297 114.331007 48.913297 
+" style="fill: none; stroke: #0b1a6e; stroke-linecap: round"/>
+    <path d="M 110.731007 47.113297 
+L 114.331007 48.913297 
+L 110.731007 50.713297 
+z
+" style="fill: #0b1a6e; stroke: #0b1a6e; stroke-linecap: round"/>
+   </g>
+   <g id="patch_14">
+    <path d="M 206.410685 48.913297 
+Q 217.112055 48.913297 226.695391 48.913297 
+" style="fill: none; stroke: #0b1a6e; stroke-linecap: round"/>
+    <path d="M 223.095391 47.113297 
+L 226.695391 48.913297 
+L 223.095391 50.713297 
+z
+" style="fill: #0b1a6e; stroke: #0b1a6e; stroke-linecap: round"/>
+   </g>
+   <g id="patch_15">
+    <path d="M 297.372329 48.913297 
+Q 308.073699 48.913297 317.657035 48.913297 
+" style="fill: none; stroke: #0b1a6e; stroke-linecap: round"/>
+    <path d="M 314.057035 47.113297 
+L 317.657035 48.913297 
+L 314.057035 50.713297 
+z
+" style="fill: #0b1a6e; stroke: #0b1a6e; stroke-linecap: round"/>
+   </g>
+   <g id="patch_16">
+    <path d="M 353.554521 78.581189 
+Q 353.554521 94.763676 353.554521 109.828128 
+" style="fill: none; stroke: #0b1a6e; stroke-linecap: round"/>
+    <path d="M 355.354521 106.228128 
+L 353.554521 109.828128 
+L 351.754521 106.228128 
+z
+" style="fill: #0b1a6e; stroke: #0b1a6e; stroke-linecap: round"/>
+   </g>
+   <g id="text_1">
+    <text style="font-weight: 700; font-size: 9px; font-family: 'STIXGeneral'; text-anchor: middle" x="53.916164" y="32.553438" transform="rotate(-0 53.916164 32.553438)">Shared pool</text>
+   </g>
+   <g id="text_2">
+    <text style="font-size: 9px; font-family: 'STIXGeneral'; text-anchor: middle" x="53.916164" y="44.960011" transform="rotate(-0 53.916164 44.960011)">9,800 designs</text>
+   </g>
+   <g id="text_3">
+    <text style="font-size: 9px; font-family: 'STIXGeneral'; text-anchor: middle" x="53.916164" y="57.366584" transform="rotate(-0 53.916164 57.366584)">28% feasible</text>
+   </g>
+   <g id="text_4">
+    <text style="font-size: 9px; font-family: 'STIXGeneral'; text-anchor: middle" x="53.916164" y="69.773157" transform="rotate(-0 53.916164 69.773157)">best 352.9 km</text>
+   </g>
+   <g id="text_5">
+    <text style="font-weight: 700; font-size: 9px; font-family: 'STIXGeneral'; text-anchor: middle" x="160.929863" y="31.474605" transform="rotate(-0 160.929863 31.474605)">Search strategy</text>
+   </g>
+   <g id="text_6">
+    <text style="font-size: 9px; font-family: 'STIXGeneral'; text-anchor: middle" x="160.929863" y="54.939211" transform="rotate(-0 160.929863 54.939211)">TuRBO</text>
+   </g>
+   <g id="text_7">
+    <text style="font-size: 9px; font-family: 'STIXGeneral'; text-anchor: middle" x="160.929863" y="79.752357" transform="rotate(-0 160.929863 79.752357)">AL-R</text>
+   </g>
+   <g id="text_8">
+    <text style="font-size: 9px; font-family: 'STIXGeneral'; text-anchor: middle" x="160.929863" y="104.565503" transform="rotate(-0 160.929863 104.565503)">AL</text>
+   </g>
+   <g id="text_9">
+    <text style="font-size: 9px; font-family: 'STIXGeneral'; text-anchor: middle" x="160.929863" y="129.378649" transform="rotate(-0 160.929863 129.378649)">adapt10</text>
+   </g>
+   <g id="text_10">
+    <text style="font-size: 9px; font-family: 'STIXGeneral'; text-anchor: middle" x="160.929863" y="154.191795" transform="rotate(-0 160.929863 154.191795)">local10, local5</text>
+   </g>
+   <g id="text_11">
+    <text style="font-size: 9px; font-family: 'STIXGeneral'; text-anchor: middle" x="160.929863" y="179.004941" transform="rotate(-0 160.929863 179.004941)">LHS, uniform</text>
+   </g>
+   <g id="text_12">
+    <text style="font-weight: 700; font-size: 9px; font-family: 'STIXGeneral'; text-anchor: middle" x="262.592877" y="32.553438" transform="rotate(-0 262.592877 32.553438)">Equal budget</text>
+   </g>
+   <g id="text_13">
+    <text style="font-size: 9px; font-family: 'STIXGeneral'; text-anchor: middle" x="262.592877" y="44.960011" transform="rotate(-0 262.592877 44.960011)">287 evaluations</text>
+   </g>
+   <g id="text_14">
+    <text style="font-size: 9px; font-family: 'STIXGeneral'; text-anchor: middle" x="262.592877" y="57.366584" transform="rotate(-0 262.592877 57.366584)">per run,</text>
+   </g>
+   <g id="text_15">
+    <text style="font-size: 9px; font-family: 'STIXGeneral'; text-anchor: middle" x="262.592877" y="69.773157" transform="rotate(-0 262.592877 69.773157)">10 to 20 seeds</text>
+   </g>
+   <g id="text_16">
+    <text style="font-weight: 700; font-size: 9px; font-family: 'STIXGeneral'; text-anchor: middle" x="353.554521" y="32.553438" transform="rotate(-0 353.554521 32.553438)">Outcome</text>
+   </g>
+   <g id="text_17">
+    <text style="font-size: 9px; font-family: 'STIXGeneral'; text-anchor: middle" x="353.554521" y="44.960011" transform="rotate(-0 353.554521 44.960011)">best feasible</text>
+   </g>
+   <g id="text_18">
+    <text style="font-size: 9px; font-family: 'STIXGeneral'; text-anchor: middle" x="353.554521" y="57.366584" transform="rotate(-0 353.554521 57.366584)">range of each run</text>
+   </g>
+   <g id="text_19">
+    <text style="font-size: 9px; font-family: 'STIXGeneral'; text-anchor: middle" x="353.554521" y="69.773157" transform="rotate(-0 353.554521 69.773157)">and its statistics</text>
+   </g>
+   <g id="text_20">
+    <text style="font-weight: 700; font-size: 9px; font-family: 'STIXGeneral'; text-anchor: middle" x="308.073699" y="132.345438" transform="rotate(-0 308.073699 132.345438)">Audits</text>
+   </g>
+   <g id="text_21">
+    <text style="font-size: 9px; font-family: 'STIXGeneral'; text-anchor: middle" x="308.073699" y="144.752011" transform="rotate(-0 308.073699 144.752011)">panel refinement, second solver,</text>
+   </g>
+   <g id="text_22">
+    <text style="font-size: 9px; font-family: 'STIXGeneral'; text-anchor: middle" x="308.073699" y="157.158584" transform="rotate(-0 308.073699 157.158584)">Euler calibration of the static margin,</text>
+   </g>
+   <g id="text_23">
+    <text style="font-size: 9px; font-family: 'STIXGeneral'; text-anchor: middle" x="308.073699" y="169.565157" transform="rotate(-0 308.073699 169.565157)">bound prices, weight ablation, pool size</text>
+   </g>
+  </g>
+ </g>
+</svg>

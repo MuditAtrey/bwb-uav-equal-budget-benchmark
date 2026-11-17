@@ -1,0 +1,16 @@
+Classifier audit v3: RandomForest 100 trees, MinMax-scaled features, five repeated stratified 80/20 random splits (seeds 0-4)
+Source: flying_wing_optimizer/results/database.csv (10087 rows, 2907 valid, 71.2% infeasible)
+Range thresholds (160 Wh/kg basis): top 10% >= 196.3 km, top 2% >= 292.6 km
+
+ seed  precision  recall  recall_top10  n_top10  recall_top2  n_top2  mean_p_top10  fn_best_range  n_test  n_test_valid  n_fn  n_tp  fn_within10  tp_within10  fn_median_range  tp_median_range
+    0     0.8721  0.5739        0.7593       54       0.8824      17        0.6920       294.9216    2018           582   248   334       0.2702       0.0838          96.9635         107.4155
+    1     0.8920  0.5533        0.7593       54       0.9375      16        0.7048       295.1942    2018           582   260   322       0.2346       0.0994          98.0502         108.7202
+    2     0.8618  0.5893        0.7500       60       0.9000      10        0.6890       292.6162    2018           582   239   343       0.2929       0.0845          90.5748         104.1920
+    3     0.8866  0.5911        0.7544       57       0.8889       9        0.6768       292.6162    2018           582   238   344       0.2311       0.0698          96.9727         101.6409
+    4     0.9135  0.6168        0.8393       56       0.8571      14        0.6659       298.7239    2018           582   223   359       0.2780       0.0919          94.5900         110.2882
+
+mean:
+{'precision': 0.8852, 'recall': 0.5849, 'recall_top10': 0.7724, 'n_top10': 56.2, 'recall_top2': 0.8932, 'n_top2': 13.2, 'mean_p_top10': 0.6857, 'fn_best_range': 294.8144, 'n_test': 2018.0, 'n_test_valid': 582.0, 'n_fn': 241.6, 'n_tp': 340.4, 'fn_within10': 0.2614, 'tp_within10': 0.0859, 'fn_median_range': 95.4302, 'tp_median_range': 106.4513}
+sd:
+{'precision': 0.0198, 'recall': 0.0235, 'recall_top10': 0.0376, 'n_top10': 2.49, 'recall_top2': 0.0293, 'n_top2': 3.5637, 'mean_p_top10': 0.0149, 'fn_best_range': 2.5052, 'n_test': 0.0, 'n_test_valid': 0.0, 'n_fn': 13.6492, 'n_tp': 13.6492, 'fn_within10': 0.0273, 'tp_within10': 0.011, 'fn_median_range': 2.9948, 'tp_median_range': 3.5015}
+Highest false-negative range: max over splits 298.7 km, mean 294.8 km (160 basis)

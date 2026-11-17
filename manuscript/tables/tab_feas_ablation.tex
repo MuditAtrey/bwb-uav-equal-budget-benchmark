@@ -1,0 +1,11 @@
+\begin{tabular}{@{}lrrrrrr@{}}
+\toprule
+Search & Runs & Best at 287, mean $\pm$ sd & Min-max & Valid (\%) & Valid, first 60 (\%) & Best at 150 \\
+\midrule
+AL, sigmoid weight (as published) & 10 & 385.5 $\pm$ 10.8 & 368.9 to 397.4 & 60 & 14 & 379.8 \\
+AL, hard 0/1 gate & 10 & 394.0 $\pm$ 4.2 & 383.6 to 399.5 & 10 & 0 & 38.4 \\
+AL, no classifier weight & 10 & no valid design in any run & n/a & 0 & 0 & 0.0 \\
+TuRBO & 10 & 396.6 $\pm$ 5.8 & 385.1 to 403.0 & 82 & 80 & 388.2 \\
+TuRBO, with sigmoid weight & 10 & 394.8 $\pm$ 4.4 & 386.2 to 399.5 & 91 & 90 & 383.3 \\
+\bottomrule
+\end{tabular}

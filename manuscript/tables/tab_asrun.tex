@@ -1,0 +1,14 @@
+\begin{tabular*}{\linewidth}{@{\extracolsep{\fill}}lrrrrrrrrr@{}}
+\toprule
+ & & \multicolumn{3}{c}{Best feasible range (km)} & \multicolumn{3}{c}{Share of evaluations (\%)} & \multicolumn{2}{c}{Beating the pool} \\
+\cmidrule(lr){3-5}\cmidrule(lr){6-8}\cmidrule(l){9-10}
+Strategy & Runs & at 100 & at 287 & min to max & valid & valid$_{60}$ & fail $g_8$ & runs & evals \\
+\midrule
+TuRBO & 20 & 382.9 & 396.8 $\pm$ 4.4 & 385.3 to 403.0 & 82 & 80 & 0 & 20/20 & 2 \\
+TuRBO (first) & 10 & 381.0 & 396.6 $\pm$ 5.8 & 385.1 to 403.0 & 82 & 80 & 0 & 10/10 & 2 \\
+adapt10 & 20 & 372.9 & 386.1 $\pm$ 6.3 & 369.2 to 393.2 & 68 & 69 & 0 & 20/20 & 34 \\
+adapt10 (first) & 10 & 365.4 & 379.7 $\pm$ 4.5 & 370.8 to 386.4 & 71 & 72 & 0 & 10/10 & 51 \\
+TuRBO+w & 10 & 383.9 & 397.5 $\pm$ 2.8 & 394.0 to 403.0 & 92 & 92 & 0 & 10/10 & 2 \\
+TuRBO+w (first) & 10 & 376.8 & 394.8 $\pm$ 4.4 & 386.2 to 399.5 & 91 & 90 & 0 & 10/10 & 2 \\
+\bottomrule
+\end{tabular*}

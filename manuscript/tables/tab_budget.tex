@@ -1,0 +1,15 @@
+\begin{tabular}{@{}lrrrrrrrr@{}}
+\toprule
+Strategy & Runs & Best at 100 & Best at 287, mean $\pm$ sd & Min-max & Valid (\%) & Valid, first 60 (\%) & Beats pool best & Evals to do so \\
+\midrule
+TuRBO (BO) & 10 & 381.0 & 396.6 $\pm$ 5.8 & 385.1 to 403.0 & 82 & 80 & 10/10 & 2 \\
+Active learning & 11 & 374.1 & 385.0 $\pm$ 10.4 & 368.9 to 397.4 & 59 & 14 & 11/11 & 43 \\
+Adaptive local search, 10\% & 10 & 365.4 & 379.7 $\pm$ 4.5 & 370.8 to 386.4 & 71 & 72 & 10/10 & 51 \\
+Local search, 10\% & 10 & 357.6 & 365.2 $\pm$ 4.7 & 358.5 to 373.1 & 64 & 60 & 10/10 & 36 \\
+Local search, 5\% & 10 & 357.7 & 364.2 $\pm$ 6.6 & 351.9 to 373.2 & 81 & 80 & 9/10 & 31 \\
+Fresh LHS & 10 & 270.3 & 298.3 $\pm$ 27.2 & 260.2 to 337.3 & 28 & 30 & 0/10 & n/a \\
+Uniform random & 10 & 264.1 & 307.6 $\pm$ 30.5 & 264.2 to 353.3 & 28 & 26 & 1/10 & 147 \\
+\midrule
+Pool only (9,800 LHS) & n/a & n/a & 352.9 & n/a & 28 & n/a & n/a & n/a \\
+\bottomrule
+\end{tabular}
